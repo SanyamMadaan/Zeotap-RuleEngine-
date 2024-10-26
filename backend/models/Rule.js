@@ -6,4 +6,4 @@ const ruleSchema=new mongoose.Schema({
     createdAt:{type:Date,default:Date.now},
 });
 
-coreModule.exports=mongoose.model('Rule',ruleSchema);
+module.exports=mongoose.model('Rule',ruleSchema);

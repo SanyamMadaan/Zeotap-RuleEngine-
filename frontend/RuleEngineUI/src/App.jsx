@@ -11,7 +11,7 @@ function App() {
 
   const FetchRules=useCallback(async()=>{
     try{
-    const response=await axios.get('http://localhost:3000/api/rules/getrules');
+    const response=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/rules/getrules`);
     console.log(response.data.data);
     setRules(response.data.data);
   }catch(error){
@@ -25,14 +25,14 @@ function App() {
 
 //there should be backend request
   const handleAddRule = async (newRule) => {
-    const response=await axios.post('http://localhost:3000/api/rules');
+    const response=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/rules`);
     FetchRules();
   };
 
   //this will combine rules
   const handleCombineRules = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/rules/combine', {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/rules/combine`, {
         body:{rules}
       });
       const result =response.data;

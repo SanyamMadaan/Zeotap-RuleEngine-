@@ -6,7 +6,13 @@ require('./db');
 const PORT=process.env.PORT||3000;
 
 const app=express();
-app.use(cors());
+
+app.use(cors({
+    origin: 'https://zeotap-rule-engine-44r1.vercel.app', // Use your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // Allows cookies or auth headers if needed
+}));
+
 app.use(express.json());
 
 app.use('/api/rules',ruleRoutes);

@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
       await newRule.save();
       res.status(201).json(newRule);
     } catch (error) {
-      res.status(500).json({ error: 'Failed to create rule' });
+      res.status(500).json({ error });
     }
   });
 
